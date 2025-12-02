@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Performance Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .verification {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .result {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-left: 4px solid #4caf50;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Performance Analysis</h1>
+        
+        <div class="verification">
+            <strong>Verification Email:</strong> 22f3001098@ds.study.iitm.ac.in
+        </div>
+
+        <h2>Python Code:</h2>
+        <pre># Employee Performance Analysis
+# Verification Email: 22f3001098@ds.study.iitm.ac.in
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Sample employee data
+data = {
+    'Employee_ID': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    'Name': ['John Doe', 'Jane Smith', 'Bob Johnson', 'Alice Williams', 
+             'Charlie Brown', 'David Lee', 'Emma Davis', 'Frank Miller',
+             'Grace Wilson', 'Henry Moore'],
+    'Department': ['Marketing', 'Sales', 'Marketing', 'IT', 'HR',
+                   'Marketing', 'Sales', 'IT', 'Marketing', 'HR'],
+    'Region': ['North', 'South', 'East', 'West', 'North',
+               'South', 'East', 'North', 'West', 'South'],
+    'Performance_Score': [85, 92, 78, 88, 95, 82, 90, 87, 79, 91]
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Calculate frequency count for Marketing department
+marketing_count = df[df['Department'] == 'Marketing'].shape[0]
+print(f"Frequency count for Marketing department: {marketing_count}")
+
+# Calculate frequency for all departments
+dept_frequency = df['Department'].value_counts()
+print("\nDepartment Frequency Distribution:")
+print(dept_frequency)
+
+# Create histogram showing distribution of departments
+plt.figure(figsize=(10, 6))
+sns.set_style("whitegrid")
+
+dept_counts = df['Department'].value_counts().sort_index()
+plt.bar(dept_counts.index, dept_counts.values)
+
+plt.xlabel('Department', fontsize=12, fontweight='bold')
+plt.ylabel('Number of Employees', fontsize=12, fontweight='bold')
+plt.title('Employee Distribution by Department', fontsize=14, fontweight='bold')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+plt.savefig('department_distribution.png', dpi=300)
+plt.show()</pre>
+
+        <div class="result">
+            <h2>Expected Output:</h2>
+            <p><strong>Frequency count for Marketing department: 4</strong></p>
+            <p>This code generates a histogram showing department distribution.</p>
+        </div>
+    </div>
+</body>
+</html>
